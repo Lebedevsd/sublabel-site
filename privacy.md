@@ -27,7 +27,7 @@ Each browser profile has its own separate catalog. Nothing is synced between bro
 
 ytFolder runs on `www.youtube.com` pages to add its "Open ytFolder" launcher and the save button
 beside Subscribe. On a channel page it reads that channel's public ID and name when you open the
-save dialog. On your subscriptions page it reads the listed channels only when you ask it to. It does
+save dialog. On your subscriptions page it reads the listed channels only when you ask it to. On the subscriptions video feed (`/feed/subscriptions`) it reads each video card's channel ID and video ID and marks the card with them inside the page, so cards can be filtered by label; these IDs are not stored or sent anywhere. It does
 not read your watch history, comments, playlists or account details, and it never changes anything
 on your YouTube account: no history, watched state, playlists or subscriptions.
 
