@@ -36,7 +36,7 @@ on your YouTube account: no history, watched state, playlists or subscriptions.
 ytFolder only makes network requests when you load a label's video feed, after you turn on public
 video feeds:
 
-- It requests public feeds from `https://www.youtube.com/feeds/videos.xml?channel_id=…` for the
+- It requests public feeds from `https://www.youtube.com/feeds/videos.xml` for the
   channels in that view.
 - It loads video thumbnails from `https://i.ytimg.com/`.
 
