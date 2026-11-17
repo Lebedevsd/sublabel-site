@@ -17,6 +17,8 @@ Everything is stored locally in your browser profile, in the extension's own sto
   which labels each channel has, and skipped videos (video ID, title, channel ID and the time you
   skipped it).
 - **Settings:** whether you turned on public video feeds.
+- **Channel topics:** when you use "Look up topics", the topic categories YouTube returned for each
+  looked-up channel and when they were looked up (kept for 30 days), plus a count of today's lookups.
 - **A temporary subscription preview:** when you ask ytFolder to read your YouTube subscriptions
   page, the channel list it found is kept in session storage until you save or dismiss it, or the
   browser closes. Nothing is saved to your catalog until you confirm.
@@ -33,16 +35,27 @@ on your YouTube account: no history, watched state, playlists or subscriptions.
 
 ## Network requests
 
-ytFolder only makes network requests when you load a label's video feed, after you turn on public
-video feeds:
+ytFolder only makes network requests in two cases, both started by you.
+
+When you load a label's video feed, after you turn on public video feeds:
 
 - It requests public feeds from `https://www.youtube.com/feeds/videos.xml` for the
   channels in that view.
 - It loads video thumbnails from `https://i.ytimg.com/`.
 
+When you choose "Look up topics":
+
+- It sends the IDs of up to 50 of your saved channels to the YouTube Data API
+  (`https://www.googleapis.com/youtube/v3/channels`) and receives their public topic categories.
+
 These requests are sent without cookies or a referrer, so they are not tied to your YouTube
-sign-in. Google's own privacy policy applies to them. Opening a video or channel link takes you to
-YouTube like any other link.
+sign-in. Opening a video or channel link takes you to YouTube like any other link.
+
+Topic lookup uses YouTube API Services. By using it you agree to the
+[YouTube Terms of Service](https://www.youtube.com/t/terms), and Google's handling of the request
+is covered by the [Google Privacy Policy](https://policies.google.com/privacy), which also applies
+to the feed and thumbnail requests. Topic lookup uses no Google sign-in and accesses no account
+data.
 
 ## Backups
 
