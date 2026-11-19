@@ -37,17 +37,17 @@ Each browser profile has its own separate catalog. Nothing is synced between bro
 
 ## What ytFolder reads on YouTube
 
-ytFolder runs on `www.youtube.com` pages to add its "Open ytFolder" launcher, and the save button
+ytFolder runs on `www.youtube.com` pages to add the save button
 and your labels beside Subscribe on channel and video pages. On a channel page it reads that
 channel's public ID and name; on a video page it reads the public ID and name of the channel that
-uploaded the video, and the video's YouTube category (such as Gaming or Music) to suggest labels. It uses them to show which of your labels that channel has and, when you open
+uploaded the video, and the video's YouTube category (such as Gaming or Music) and its public tags to suggest labels: your existing labels first, then new label names taken from the category and a few short tags. A suggested new label is created only when you click it. The tags are not stored. It uses them to show which of your labels that channel has and, when you open
 the save dialog, to save it. When you open the ytFolder toolbar popup on a YouTube tab, the popup
 asks that tab for the same channel ID and name to show its labels; the popup does not read the
 tab's address or other pages. Your label names, their nesting and how many videos
 from ytFolder's cached feeds are new for each label are also shown as a section in YouTube's left
 menu, unless you turn it off in the popup. YouTube's page
 scripts cannot read the names, but can see the section's size and therefore roughly how many labels
-you have; which channels have which labels is never shown there. On your subscriptions page it reads the listed channels only when you ask it to. On the subscriptions video feed (`/feed/subscriptions`) it reads each video card's channel ID, video ID, type (video, live, upcoming or Short) and whether YouTube shows it as watched, and marks the card with them inside the page, so cards can be filtered by label; these IDs are not stored or sent anywhere. For the label filter on that page, ytFolder's own script there reads your label names, which labels each saved channel has, your skipped video IDs and any looked-up channel topics from the extension. YouTube's page scripts cannot access this, and it is not sent anywhere. Apart from that watched mark on feed cards, it does
+you have; which channels have which labels is never shown there. On your subscriptions page it reads the listed channels only when you ask it to; the "Get started" guide can also load that page for you (see Network requests). On the subscriptions video feed (`/feed/subscriptions`) it reads each video card's channel ID, video ID, type (video, live, upcoming or Short) and whether YouTube shows it as watched, and marks the card with them inside the page, so cards can be filtered by label; these IDs are not stored or sent anywhere. For the label filter on that page, ytFolder's own script there reads your label names, which labels each saved channel has, your skipped video IDs and any looked-up channel topics from the extension. YouTube's page scripts cannot access this, and it is not sent anywhere. Apart from that watched mark on feed cards, it does
 not read your watch history, comments, playlists or account details, and it never changes anything
 on your YouTube account: no history, watched state, playlists or subscriptions.
 
@@ -69,13 +69,19 @@ popup:
   cached feed is older than 30 minutes, so new-video counts stay current. If YouTube asks it to slow
   down, it pauses for an hour, longer if it happens again.
 
+When you choose "Find my channels" in the "Get started" guide:
+
+- It loads your subscriptions page, `https://www.youtube.com/feed/channels`, **with your YouTube
+  sign-in cookies**, the same way your browser loads it when you open the page, and reads the
+  channel list from it. The list stays on this page until you save it; nothing is sent elsewhere.
+
 When you choose "Look up topics":
 
 - It sends the IDs of up to 50 of your saved channels to the YouTube Data API
   (`https://www.googleapis.com/youtube/v3/channels`) and receives their public topic categories.
 
-These requests are sent without cookies or a referrer, so they are not tied to your YouTube
-sign-in. Opening a video or channel link takes you to YouTube like any other link.
+Apart from "Find my channels", these requests are sent without cookies or a referrer, so they are
+not tied to your YouTube sign-in. Opening a video or channel link takes you to YouTube like any other link.
 
 Topic lookup uses YouTube API Services. By using it you agree to the
 [YouTube Terms of Service](https://www.youtube.com/t/terms), and Google's handling of the request
