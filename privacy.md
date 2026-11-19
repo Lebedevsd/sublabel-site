@@ -23,7 +23,8 @@ Everything is stored locally in your browser profile, in the extension's own sto
   (video ID, title, link, publish time and thumbnail address, up to 50 per channel, removed after 14
   days), when you last opened each label's video feed (to mark newer videos as new), when YouTube
   last asked ytFolder to slow down (to pause background refresh), and when you last exported a
-  backup and how many channels it held (for the backup reminder).
+  backup and how many channels it held (for the backup reminder), and the labels you most recently
+  assigned to channels (up to 20, to suggest them on channels without labels).
 - **Channel topics:** when you use "Look up topics", the topic categories YouTube returned for each
   looked-up channel and when they were looked up (kept for 30 days), plus a count of today's lookups.
 - **A temporary subscription preview:** when you ask ytFolder to read your YouTube subscriptions
