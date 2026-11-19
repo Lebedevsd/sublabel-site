@@ -25,7 +25,7 @@ Everything is stored locally in your browser profile, in the extension's own sto
   last asked ytFolder to slow down (to pause background refresh), and when you last exported a
   backup and how many channels it held (for the backup reminder), the labels you most recently
   assigned to channels (up to 20), and how often you picked each label for channels of each YouTube
-  video category (up to 50 categories); the last two are used to suggest labels for channels without
+  video category or looked-up channel topic (up to 50 of them); the last two are used to suggest labels for channels without
   labels.
 - **Channel topics:** when you use "Look up topics", the topic categories YouTube returned for each
   looked-up channel and when they were looked up (kept for 30 days), plus a count of today's lookups.
