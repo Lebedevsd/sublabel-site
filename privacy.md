@@ -27,7 +27,8 @@ Everything is stored locally in your browser profile, in the extension's own sto
   assigned to channels (up to 20), and how often you picked each label for channels of each YouTube
   video category or looked-up channel topic (up to 50 of them); the last two are used to suggest labels for channels without
   labels.
-- **Channel topics:** when you use "Look up topics", the topic categories YouTube returned for each
+- **Channel topics:** when you use "Look up topics" (or "Suggest labels from my channels" in the
+  "Get started" guide), the topic categories YouTube returned for each
   looked-up channel and when they were looked up (kept for 30 days), plus a count of today's lookups.
 - **A temporary subscription preview:** when you ask Sublabel to read your YouTube subscriptions
   page, the channel list it found is kept in session storage until you save or dismiss it, or the
@@ -47,7 +48,7 @@ tab's address or other pages. Your label names, their nesting and how many video
 from Sublabel's cached feeds are new for each label are also shown as a section in YouTube's left
 menu, unless you turn it off in the popup. YouTube's page
 scripts cannot read the names, but can see the section's size and therefore roughly how many labels
-you have; which channels have which labels is never shown there. On your subscriptions page it reads the listed channels only when you ask it to; the "Get started" guide can also load that page for you (see Network requests). On the subscriptions video feed (`/feed/subscriptions`) it reads each video card's channel ID, video ID, type (video, live, upcoming or Short) and whether YouTube shows it as watched, and marks the card with them inside the page, so cards can be filtered by label; these IDs are not stored or sent anywhere. For the label filter on that page, Sublabel's own script there reads your label names, which labels each saved channel has, your skipped video IDs and any looked-up channel topics from the extension. YouTube's page scripts cannot access this, and it is not sent anywhere. Apart from that watched mark on feed cards, it does
+you have. Which channels have which labels is shown there only when you choose Delete label… in a label's right-click menu: that dialog lists the label's channels, again where YouTube's page scripts cannot read them. On your subscriptions page it reads the listed channels only when you ask it to; the "Get started" guide can also load that page for you (see Network requests). On the subscriptions video feed (`/feed/subscriptions`) it reads each video card's channel ID, video ID, type (video, live, upcoming or Short) and whether YouTube shows it as watched, and marks the card with them inside the page, so cards can be filtered by label; these IDs are not stored or sent anywhere. For the label filter on that page, Sublabel's own script there reads your label names, which labels each saved channel has, your skipped video IDs and any looked-up channel topics from the extension. YouTube's page scripts cannot access this, and it is not sent anywhere. Apart from that watched mark on feed cards, it does
 not read your watch history, comments, playlists or account details, and it never changes anything
 on your YouTube account: no history, watched state, playlists or subscriptions.
 
@@ -75,7 +76,7 @@ When you choose "Find my channels" in the "Get started" guide:
   sign-in cookies**, the same way your browser loads it when you open the page, and reads the
   channel list from it. The list stays on this page until you save it; nothing is sent elsewhere.
 
-When you choose "Look up topics":
+When you choose "Look up topics", or "Suggest labels from my channels" in the "Get started" guide:
 
 - It sends the IDs of up to 50 of your saved channels to the YouTube Data API
   (`https://www.googleapis.com/youtube/v3/channels`) and receives their public topic categories.
